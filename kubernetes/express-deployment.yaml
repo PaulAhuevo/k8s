@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: express
-        image: stephengrider/multi-server
+        image: ahuevote/multi-server
         ports:
         - containerPort: 5000
         env:
