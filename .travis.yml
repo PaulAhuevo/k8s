@@ -13,13 +13,11 @@ before_install:
   - gcloud auth active-service-account --key-file service-account.json
   - gcloud config set project k8s-tutorial-235509
   - gcloud config set compute/zone europe-west1-b	
-  - gcloud container clusters get-credentials multi-cluster
+  - gcloud container clusters get-credentials k8s-tutorial
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t stephengrider/react-test -f ./client/Dockerfile.dev ./client
-
 script:
   - docker run stpehngrider/react-test npm test -- --coverage
-
 deploy: 
   provider: script
   script: bash ./deploy.sh
