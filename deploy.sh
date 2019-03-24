@@ -13,7 +13,7 @@ docker push ahuevote/multi-server:$SHA
 docker push ahuevote/multi-worker:$SHA
 
 echo "apply deployment files"
-kubectl apply -f k8s
+kubectl apply -f kubernetes
 kubectl set image deployments/server-deployment server=stephengrider/multi-server:$SHA
 kubectl set image deployments/client-deployment server=stephengrider/multi-client:$SHA
 kubectl set image deployments/worker-deployment server=stephengrider/multi-worker:$SHA
